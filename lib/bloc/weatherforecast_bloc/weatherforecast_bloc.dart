@@ -14,8 +14,8 @@ import '../../utils/keys.dart';
 part 'weatherforecast_event.dart';
 part 'weatherforecast_state.dart';
 
-
-class WeatherForeCastBloc extends Bloc<WeatherForeCastEvent, WeatherForeCastState> {
+class WeatherForeCastBloc
+    extends Bloc<WeatherForeCastEvent, WeatherForeCastState> {
   WeatherForeCastBloc() : super(WeatherForeCastInitial()) {
     on<FetchWeather>((event, emit) async {
       emit(WeatherForeCastLoading());
