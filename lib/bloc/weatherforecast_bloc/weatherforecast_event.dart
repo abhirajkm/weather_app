@@ -6,7 +6,7 @@ abstract class WeatherForeCastEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchWeather extends WeatherForeCastEvent{
+class FetchWeatherForeCast extends WeatherForeCastEvent{
   final Position position;
-  const FetchWeather(this.position);
+  const FetchWeatherForeCast(this.position);
 }

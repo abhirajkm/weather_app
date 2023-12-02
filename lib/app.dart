@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_app/bloc/weather_bloc.dart';
 import 'package:weather_app/components/appLoader.dart';
 import 'package:weather_app/screens/home.dart';
 import 'package:weather_app/utils/strings.dart';
 import 'package:weather_app/utils/theme.dart';
 
-import 'bloc/weather_event.dart';
+import 'bloc/weatherBloc/weather_bloc.dart';
+import 'bloc/weatherBloc/weather_event.dart';
+import 'bloc/weatherforecast_bloc/weatherforecast_bloc.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -22,22 +23,31 @@ class App extends StatelessWidget {
       home: FutureBuilder(
         future: _determinePosition(),
         builder: (context, snapshot) {
-          if(snapshot.hasData){
+          if (snapshot.hasData) {
             final position = snapshot.data as Position;
-            return BlocProvider<WeatherBloc>(
-              create: (context) => WeatherBloc()..add(FetchWeather(position)),
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider<WeatherBloc>(
+                  create: (context) =>
+                      WeatherBloc()..add(FetchWeather(position)),
+                ),
+                BlocProvider<WeatherForeCastBloc>(
+                  create: (context) => WeatherForeCastBloc()
+                    ..add(FetchWeatherForeCast(position)),
+                )
+              ],
               child: const HomeScreen(),
             );
-          }
-          else{
+          } else {
             return const Scaffold(
               body: AppLoader(),
             );
           }
-        }
-        ,),
+        },
+      ),
     );
   }
+
   Future<Position> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;

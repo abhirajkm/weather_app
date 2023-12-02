@@ -7,7 +7,9 @@ ThemeData appTheme = ThemeData(
 );
 
 const primaryColor = Color(0xFFAC736A);
+const transparent = Colors.transparent;
 const textLightBrown = Color(0xFFF6C8A4);
+const white = Color(0xFFFFFFFF);
 
 
 const poppins25 = TextStyle(
@@ -26,3 +28,11 @@ const poppins10 =  TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 10,
     color: textLightBrown);
+const poppins15 =  TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 15,
+    color: white);
+const poppins20 =  TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 20,
+    color: white);
