@@ -12,6 +12,12 @@ The app utilizes the OpenWeatherMap API to fetch weather data and displays it in
 - User-friendly interface with intuitive design.
 
 
+## APK Link
+ - "https://drive.google.com/file/d/1bMnMW-M293Mx9748O-oJOInu6Ax1WYER/view?usp=drive_link"
+
+## Screen Record Video Link
+ - "https://drive.google.com/file/d/1HwDIiop2SMVoRKtMXa5sD6Ff6RZZo5qp/view?usp=drive_link"
+
 ## Installation
 
 Follow these steps to run the app on your local machine:
